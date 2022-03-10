@@ -11,17 +11,16 @@ from django.utils import timezone
 Using in shell of Python
 Documentation: https://docs.djangoproject.com/en/3.2/topics/db/queries/#field-lookups-intro
 
- __gt = Greater than
-__gte = Greater than or equal to
-__lt = Less than
-__lte = Less than or equal to
-__startswith = Starts with
-__endswith = Ends with
-__exact: A case-insensitive match.
-contains: Contains
-__icontains: Case-insensitive version of startswith.
-__istartswith = case-insensitive version of startswith
-__iendswith = case-insensitive version of endswith
+    __gt = Greater than
+    __gte = Greater than or equal to
+    __lt = Less than
+    __lte = Less than or equal to
+    __startswith = Starts with
+    __endswith = Ends with
+    __exact: A case-insensitive match.
+    __icontains: Case-insensitive version of startswith.
+    __istartswith = case-insensitive version of startswith
+    __iendswith = case-insensitive version of endswith
  """
 
 class Question(models.Model):
