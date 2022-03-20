@@ -16,12 +16,16 @@ def index(request):
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/details.html',{
+    return render(request, 'polls/details.html', {
         'question': question
     })
 
+
 def result(request, question_id):
-    return HttpResponse(f'You are looking result of the question number {question_id}')
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html',{
+        'question': question
+    })
 
 
 def vote(request, question_id):
@@ -31,10 +35,9 @@ def vote(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'polls/details.html', {
             'question': question,
-            'error_message' : 'Dont choice answer'
+            'error_message': 'Dont choice answer'
         })
     else:
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:result', args=(question.id,)))
-        
